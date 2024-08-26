@@ -4,7 +4,7 @@
   border-radius: 0 0 1.6rem 1.6rem;
   @media (min-width: $mobile-small) {
     border-radius: 0 0 3.2rem 3.2rem;
-    margin-bottom: 8rem;
+    padding-bottom: 8.2rem;
   }
   .container {
     position: relative;
@@ -59,42 +59,101 @@
       }
     }
   }
-  .box-pic {
+  .container-image {
+    position: relative;
     width: 16vw;
     min-width: 26rem;
     margin: 0 auto;
     @media (min-width: $mobile-small) {
-      // width: 9vw;
-      // max-width: 27.5rem;
-      // min-width: auto;
-      // margin: 0 auto;
       margin: 0;
       position: relative;
       height: 27rem;
       width: 44%;
+    }
+  }
+  .box-pic_sim {
+    display: none;
+    z-index: 1;
+    @media (min-width: $mobile-small) {
+      display: block;
+      position: absolute;
+      right: 44%;
+      bottom: 0;
+    }
+
+    img {
+      @media (min-width: $mobile-small) {
+        max-width: 26rem;
+        width: 18vw;
+      }
+    }
+  }
+  .box-pic_phone {
+    position: relative;
+    z-index: 10;
+    @media (min-width: $mobile-small) {
+      max-width: 100%;
+      height: 100%;
     }
     picture {
       display: block;
       margin: 0 auto;
       width: 100%;
       @media (min-width: $mobile-small) {
-        // width: 9vw;
-        // max-width: 27.5rem;
-        // min-width: auto;
-        // margin: 0 auto;
+        justify-content: center;
+        display: flex;
         position: absolute;
-        width: 54%;
         bottom: 0;
-        right: 12%;
+        right: -5rem;
       }
     }
     img {
       display: block;
       position: relative;
-      width: 100%;
+      max-width: 25.5rem;
+
+      @media (min-width: $mobile-small) {
+        width: 18vw;
+      }
     }
   }
 }
+// .box-pic {
+//   width: 16vw;
+//   min-width: 26rem;
+//   margin: 0 auto;
+//   @media (min-width: $mobile-small) {
+//     // width: 9vw;
+//     // max-width: 27.5rem;
+//     // min-width: auto;
+//     // margin: 0 auto;
+//     margin: 0;
+//     position: relative;
+//     height: 27rem;
+//     width: 44%;
+//   }
+//   picture {
+//     display: block;
+//     margin: 0 auto;
+//     width: 100%;
+//     @media (min-width: $mobile-small) {
+//       // width: 9vw;
+//       // max-width: 27.5rem;
+//       // min-width: auto;
+//       // margin: 0 auto;
+//       position: absolute;
+//       width: 54%;
+//       bottom: 0;
+//       right: 12%;
+//     }
+//   }
+//   img {
+//     display: block;
+//     position: relative;
+//     width: 100%;
+//   }
+// }
+
 .app__list {
   font-size: 1.2rem;
   line-height: 1.6rem;
@@ -148,5 +207,31 @@
       margin: 0 auto;
       width: 100%;
     }
+  }
+}
+.platform_ios {
+  .playmarket-link {
+    display: none;
+  }
+  .app-store-link {
+    display: block;
+  }
+}
+
+.platform_android {
+  .playmarket-link {
+    display: block;
+  }
+  .app-store-link {
+    display: none;
+  }
+}
+
+.platform_unknown {
+  .playmarket-link {
+    display: block;
+  }
+  .app-store-link {
+    display: block;
   }
 }
