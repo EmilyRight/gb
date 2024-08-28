@@ -5,9 +5,11 @@ import { WOW } from './vendor/wow.min';
 const GTM = new GTMEvents();
 document.addEventListener('DOMContentLoaded', () => {
   new WOW().init();
+  GTM.addEventListeners();
   detectDevice();
   getCurrentYear();
   scrollTeaser();
+  goNextSection();
 });
 
 function getCurrentYear() {
@@ -30,4 +32,22 @@ function scrollToElement(el) {
   const offs = 0;
   const y = el.getBoundingClientRect().top + window.scrollY + offs;
   window.scrollTo({ top: y, behavior: 'smooth' });
+}
+
+function goNextSection() {
+  const goNextBtns = document.querySelectorAll('.js-go-next');
+  const sectionsList = document.querySelectorAll('section');
+
+  goNextBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const btnParentNode = btn.closest('section');
+      let sectionToScrollTo;
+      sectionsList.forEach((el, index) => {
+        if (el === btnParentNode) {
+          sectionToScrollTo = sectionsList[index + 1];
+          scrollToElement(sectionToScrollTo);
+        }
+      });
+    });
+  });
 }
