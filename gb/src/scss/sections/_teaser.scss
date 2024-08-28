@@ -102,7 +102,9 @@
       }
     }
   }
-
+  .js-go-next {
+    cursor: pointer;
+  }
   .teaser-more {
     display: none;
     @media (min-width: $mobile-small) {
